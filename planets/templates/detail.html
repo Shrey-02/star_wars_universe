@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+</br>
+<div class="container">
+    <br/>
+    <br/>
+    
+    
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{ planet.image.url }}" class="img-fluid rounded-start" alt="..." width="600" height="600">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <center>
+                <!-- Product name-->
+                <h2 class="fw-bolder">{{planet.name}}</h2>
+                <p class="card-text">Climate: {{ planet.climate }}</p>
+                <p class="card-text">Population: {{ planet.population }}</p>
+                <p class="card-text">Terrain: {{ planet.terrain }}</p>
+            </br>
+                <h3 class="fw-bolder">Residents</h3>
+                
+                {% if residents %}
+                {% for resident in residents %}
+                
+                <p><strong>{{ resident.name }}</strong> - Height: {{ resident.height }}, Mass: {{ resident.mass }}, Gender: {{ resident.gender }}</p>
+               
+                {% endfor %}
+              
+              {% else %}
+              <p class="card-text">No Residents Exist on this Planet!!!!</p>
+              {% endif %}
+              </br>
+                <a href="{% url 'home' %}" class="btn btn-dark">Home</a>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endblock %}
+
